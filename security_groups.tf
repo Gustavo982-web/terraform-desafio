@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg_alb" {
-  name        = "sg-alb"
+  name        = "alb-sg"
   description = "Permite trafego HTTP publico para o ALB"
   vpc_id      = aws_vpc.main.id
 
@@ -23,7 +23,7 @@ resource "aws_security_group" "sg_alb" {
 }
 
 resource "aws_security_group" "sg_ecs_tasks" {
-  name        = "sg-ecs-tasks"
+  name        = "ecs-tasks-sg"
   description = "Permite trafego vindo exclusivamente do ALB"
   vpc_id      = aws_vpc.main.id
 
@@ -47,7 +47,7 @@ resource "aws_security_group" "sg_ecs_tasks" {
 }
 
 resource "aws_security_group" "sg_rds" {
-  name        = "sg-rds"
+  name        = "rds-sg"
   description = "Permite conexoes MySQL apenas das tarefas do ECS"
   vpc_id      = aws_vpc.main.id
 
