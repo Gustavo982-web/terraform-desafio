@@ -1,10 +1,10 @@
 resource "aws_db_subnet_group" "rds_subnet_group" {
     name = "rds-subnet-gurpo"
-    subnet_ids = [aws_subnet.privada.id]
+    subnet_ids = [aws_subnet.privada_a.id, aws_subnet.privada_b.id]
 
 
     tags = {
-        Name= "RDS desafio"
+        Name= "RDS subnet Group- desagio"
     }
   
 }
@@ -28,6 +28,10 @@ resource "aws_db_instance" "banco-cosmos" {
     vpc_security_group_ids = [aws_security_group.sg_rds.id]
     publicly_accessible    = false
     skip_final_snapshot    = true
+
+    tags = {
+      Name= "rds-mysql-desafio"
+    }
 
   
 }
