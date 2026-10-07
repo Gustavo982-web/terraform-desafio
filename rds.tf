@@ -1,5 +1,5 @@
 resource "aws_db_subnet_group" "rds_subnet_group" {
-    name = "rds-subnet-gurpo"
+    name = "rds-subnet-grupo"
     subnet_ids = [aws_subnet.privada_a.id, aws_subnet.privada_b.id]
 
 
